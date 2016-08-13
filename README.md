@@ -20,7 +20,7 @@
 
 ### このプラグインのインストール方法
 
-* WordPress を導入したディレクトリの wp-content/plugins フォルダ内に watson-nlc プラグインを展開してください（wp-content/plugins/watson-nlc/watson-nlc.php ファイルが存在するようにしてください）。
+* WordPress を導入したディレクトリの wp-content/plugins フォルダ内に watson-nlc プラグインを展開してください（wp-content/plugins/wordpress_watson_nlc-master/watson-nlc.php ファイルが存在するようにしてください）。
 
     * [ここ](https://github.com/dotnsf/wordpress_watson_nlc/ "ここ")からプラグインをダウンロードした場合は WordPress のプラグイン新規追加機能を使って導入することができます。
 

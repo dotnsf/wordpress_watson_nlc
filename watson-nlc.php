@@ -375,12 +375,14 @@ class WatsonNLC{
     function nlcTrain(){
       console.log( "nlcTrain()" );
       if( window.confirm( 'IBM Watson の学習データを更新します（しばらく時間がかかります）。よろしいですか？' ) ){
+        $('#output').html( '' );
         $.ajax({
           type: "GET",
           url: ajaxurl,
           data: { 'action': 'train_data' },
           success: function( response ){
-            $('#output').html( response );
+            console.log( response );
+            $('#output').html( 'データは学習中です。' );
           },
           error: function(){
             console.log( "error" );
