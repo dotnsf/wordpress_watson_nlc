@@ -401,16 +401,20 @@ class WatsonNLC{
         data: { 'action': 'classify_body', 'body':body },
         success: function( response ){
           $('#output').html( '' );
-          var tbl = "<table border='1'><tr><th>#</th><th>category</th><th>confidence</th></tr>";
-          var classes = $.parseJSON( response );
-          for( i = 0; i < classes.length; i ++ ){
-            var cls = classes[i];
-            var cls_name = cls['class_name'];
-            var cls_confidence = cls['confidence'];
-            tbl += "<tr><td>" + (i+1) + "</td><td>" + cls_name + "</td><td>" + cls_confidence + "</td></tr>";
+          if( typeof response === "string" ){
+            $('#output').html( response );
+          }else{
+            var tbl = "<table border='1'><tr><th>#</th><th>category</th><th>confidence</th></tr>";
+            var classes = $.parseJSON( response );
+            for( i = 0; i < classes.length; i ++ ){
+              var cls = classes[i];
+              var cls_name = cls['class_name'];
+              var cls_confidence = cls['confidence'];
+              tbl += "<tr><td>" + (i+1) + "</td><td>" + cls_name + "</td><td>" + cls_confidence + "</td></tr>";
+            }
+            tbl += "</table>";
+            $('#output').html( tbl );
           }
-          tbl += "</table>";
-          $('#output').html( tbl );
         },
         error: function(){
           console.log( "error" );
