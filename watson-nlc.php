@@ -401,11 +401,11 @@ class WatsonNLC{
         data: { 'action': 'classify_body', 'body':body },
         success: function( response ){
           $('#output').html( '' );
-          if( typeof response === "string" ){
+          var classes = $.parseJSON( response );
+          if( typeof classes === "string" ){
             $('#output').html( response );
           }else{
             var tbl = "<table border='1'><tr><th>#</th><th>category</th><th>confidence</th></tr>";
-            var classes = $.parseJSON( response );
             for( i = 0; i < classes.length; i ++ ){
               var cls = classes[i];
               var cls_name = cls['class_name'];
